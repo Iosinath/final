@@ -1,0 +1,43 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %} 
+    {% for campo in formulario %}
+
+        <!-- Auth Card -->
+        <div class="flex justify-center ">
+        <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12
+            px-6 py-10 sm:px-10 sm:py-6
+            bg-white rounded-lg shadow-2xl lg:shadow-lg">
+
+            <!-- Card Title -->
+
+
+
+                <!-- Email Input -->
+
+                <label for="" class="block text-xs font-semibold text-gray-600 uppercase">{{ campo.label }}:</label>
+                <input  type="text"
+                        name="{{ campo.name }}"
+                        id="{{ campo.id }}"
+                         placeholder="{{ campo.label }}"
+                        value="{{ campo.value | default:'' }}"
+
+                    class="block w-full py-3 px-1 mt-2
+                    text-gray-800 appearance-none
+                    border-b-2 border-gray-100
+                    focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                    required />
+
+        </div>
+
+        </div>
+
+    {%endfor%}
+ <div class="flex justify-center pt-10 mb-16 ">
+                <a class="text-blue-700 bg-transparent border border-solid border-blue-700 hover:bg-blue-700 hover:text-white active:bg-blue-700 font-bold uppercase text-lg hover:drop-shadow-xl px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" role="button">
+                        <span>Aceptar</span>
+                </a>
+                 <a class="text-bloodRed bg-transparent border border-solid border-bloodRed hover:bg-bloodRed hover:text-white active:bg-bloodRed font-bold uppercase text-lg hover:drop-shadow-xl px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" role="button" href="{% url 'menus' %}">
+                        <span>Cancelar</span>
+                </a>
+            </div>
+</form>
